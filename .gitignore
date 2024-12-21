@@ -1,0 +1,14 @@
+/data
+mongo/mongo_data
+/dump
+/python-csv/python_logs
+.env
+.pytest_cache
+.venv
+/dummy_data
+python_logs/
+*__pycache__/
+/python_csv/tests_python/
+python-csv/tes
+ts_python/
+*/data
