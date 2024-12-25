@@ -27,8 +27,10 @@ services:
       - ./mongo/mongo_data:/data/db
       - ./mongo/mongo_init/init_mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - ./mongo/mongo_init/create_users.js:/docker-entrypoint-initdb.d/create-users.js:ro
-    #logging:
-      #driver: "none" 
+    networks:
+      - mongo-app
+    logging:
+      driver: "none" 
 
   python-csv:
     build:
@@ -42,6 +44,12 @@ services:
     volumes:
       - ./python-csv:/usr/src/app
     command: ["python", "main.py"]
+    networks:
+      - mongo-app
+
+networks:
+  mongo-app:
+    driver: bridge
 
 volumes: {}
 
